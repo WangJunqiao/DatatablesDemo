@@ -7,9 +7,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>dubbo-consumer2</artifactId>
-    <packaging>war</packaging>
-    <name>dubbo-consumer2 Maven Webapp</name>
-    <url>http://maven.apache.org</url>
+    <packaging>jar</packaging>
+
     <dependencies>
         <dependency>
             <groupId>DubboDemo</groupId>
@@ -45,6 +44,40 @@
 
     </dependencies>
     <build>
-        <finalName>dubbo-consumer2</finalName>
+        <finalName>duboo-consumer2</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.3</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>com.alibaba.dubbo.consumer.Consumer</mainClass>
+                                </transformer>
+                            </transformers>
+                            <artifactSet>
+                            </artifactSet>
+                            <!--<outputFile>${project.build.directory}/${project.artifactId}-${project.version}-fat.jar</outputFile>-->
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
     </build>
 </project>
