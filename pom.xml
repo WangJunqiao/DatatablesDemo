@@ -10,6 +10,9 @@
     <module>dubbo-provider</module>
     <module>dubbo-consumer</module>
     <module>dubbo-consumer2</module>
+    <module>nasimport-api</module>
+    <module>nasimport-master</module>
+    <module>nasimport-slave</module>
   </modules>
   <name>DubboDemo Maven Webapp</name>
   <url>http://maven.apache.org</url>
@@ -267,6 +270,14 @@
       <artifactId>zkclient</artifactId>
       <version>0.10</version>
     </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.apache.kafka/kafka -->
+    <dependency>
+      <groupId>org.apache.kafka</groupId>
+      <artifactId>kafka_2.12</artifactId>
+      <version>1.1.0</version>
+    </dependency>
+
 
   </dependencies>
   <build>
